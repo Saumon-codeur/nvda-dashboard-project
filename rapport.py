@@ -21,7 +21,7 @@ if not df_jour.empty:
 
     # Créer un rapport texte
     with open("rapport_du_jour.txt", "w") as f:
-        f.write(f"📊 Rapport du {aujourd_hui}\n")
+        f.write(f"Rapport du {aujourd_hui}\n")
         f.write(f"Prix d'ouverture : {prix_ouverture:.2f} EUR\n")
         f.write(f"Prix de clôture : {prix_cloture:.2f} EUR\n")
         f.write(f"Moyenne du jour : {moyenne:.2f} EUR\n")
