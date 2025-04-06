@@ -14,8 +14,8 @@ price=$(echo "$price" | sed 's/,/./')
 # Timestamp actuel
 timestamp=$(date '+%Y-%m-%d %H:%M:%S')
 
-# Fichier CSV
-FILE="nvda_prices.csv"
+# Fichier CSV avec chemin absolu
+FILE="/home/vboxuser/nvda-dashboard-project/nvda_prices.csv"
 if [ ! -f "$FILE" ]; then
     echo "timestamp,price" > "$FILE"
 fi
