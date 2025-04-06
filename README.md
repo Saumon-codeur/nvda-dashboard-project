@@ -34,3 +34,32 @@ Ce projet réalise un scraping du cours de l’action NVIDIA (NVDA) depuis le si
    ```bash
    python3 -m venv dash_env
    source dash_env/bin/activate
+
+### 2. Installer les dépendances :
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Lancer le dashboard :
+
+```bash
+python3 dashboard.py
+```
+
+Accessible à l’adresse : [http://192.168.1.25:8050](http://192.168.1.25:8050)
+
+---
+
+##  Structure du projet
+
+```
+nvda-dashboard-project/
+├── scraper_nvda.sh            # Scraper Bash
+├── nvda_prices.csv            # Données historisées
+├── dashboard.py               # Dashboard Dash
+├── rapport.py                 # Générateur de rapport quotidien
+├── rapport_du_jour.txt        # Rapport du jour
+├── requirements.txt           # Dépendances Python
+└── README.md                  # Description du projet
+```
