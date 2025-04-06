@@ -41,13 +41,30 @@ Ce projet réalise un scraping du cours de l’action NVIDIA (NVDA) depuis le si
 pip install -r requirements.txt
 ```
 
-### 3. Lancer le dashboard :
+## 3) Lancer le site (dashboard)
 
-```bash
-python3 dashboard.py
-```
+Voici les étapes à suivre pour démarrer le dashboard :
 
-Accessible à l’adresse : `http://<adresse-ip-de-la-vm>:8050`
+a. **Aller dans le dossier du projet** :
+   ```bash
+   cd nvda-dashboard-project
+   ```
+
+b. **Activer l'environnement virtuel** :
+   ```bash
+   source ~/dash_env/bin/activate
+   ```
+
+c. **Lancer le dashboard** :
+   ```bash
+   python3 dashboard.py
+   ```
+
+d. **Accéder au site depuis un navigateur** :  
+    `(http://0.0.0.0:8050/)`  
+   
+
+> Le dashboard doit rester lancé dans le terminal (ou utiliser `tmux` pour le laisser tourner en arrière-plan).
 
 ---
 
