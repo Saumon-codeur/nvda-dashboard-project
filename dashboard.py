@@ -27,14 +27,14 @@ app = Dash(__name__)
 app.title = "NVDA Live Dashboard"
 
 app.layout = html.Div([
-    html.H1("📈 Dashboard - Action NVIDIA (NVDA)"),
+    html.H1("Dashboard - Action NVIDIA (NVDA)"),
     
     html.Div(id='last-update', style={"marginBottom": "10px"}),
     html.Div(id='current-price', style={"fontSize": "24px", "fontWeight": "bold", "marginBottom": "20px"}),
 
     dcc.Graph(id='price-graph'),
 
-    html.H2("📊 Rapport quotidien"),
+    html.H2("Rapport quotidien"),
     html.Pre(id='daily-report', style={
         "whiteSpace": "pre-wrap",
         "backgroundColor": "#f7f7f7",
@@ -68,9 +68,9 @@ def update_dashboard(n):
     rapport = lire_rapport()
 
     return (
-        f"💰 Prix actuel : {current_price:.2f} EUR",
+        f"Prix actuel : {current_price:.2f} EUR",
         fig,
-        f"📅 Dernière mise à jour : {current_time}",
+        f"Dernière mise à jour : {current_time}",
         rapport
     )
 
