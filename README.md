@@ -47,7 +47,7 @@ pip install -r requirements.txt
 python3 dashboard.py
 ```
 
-Accessible à l’adresse : (http://<adresse-ip-de-la-vm>:8050)
+Accessible à l’adresse : `http://<adresse-ip-de-la-vm>:8050`
 
 ---
 
