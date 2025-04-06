@@ -24,6 +24,7 @@ def lire_rapport():
 
 # Initialiser l'application Dash
 app = Dash(__name__)
+server = app.server  
 app.title = "NVDA Live Dashboard"
 
 app.layout = html.Div([
