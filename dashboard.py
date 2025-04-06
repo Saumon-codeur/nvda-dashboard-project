@@ -27,23 +27,63 @@ app = Dash(__name__)
 server = app.server  
 app.title = "NVDA Live Dashboard"
 
-app.layout = html.Div([
-    html.H1("Dashboard - Action NVIDIA (NVDA)"),
-    
-    html.Div(id='last-update', style={"marginBottom": "10px"}),
-    html.Div(id='current-price', style={"fontSize": "24px", "fontWeight": "bold", "marginBottom": "20px"}),
 
+app.layout = html.Div(style={"fontFamily": "Arial, sans-serif", "padding": "20px"}, children=[
+
+    #  header
+    html.Div("📈 NVDA Live Dashboard", style={
+        "backgroundColor": "#0d47a1",
+        "color": "white",
+        "padding": "1em",
+        "textAlign": "center",
+        "fontSize": "30px",
+        "borderRadius": "8px",
+        "marginBottom": "20px"
+    }),
+
+    # last update
+    html.Div(id='last-update', style={
+        "marginBottom": "10px",
+        "color": "#555",
+        "fontSize": "16px"
+    }),
+
+    #current price
+    html.Div(id='current-price', style={
+        "fontSize": "28px",
+        "fontWeight": "bold",
+        "color": "#2e7d32",
+        "marginBottom": "20px"
+    }),
+
+    # graphs
     dcc.Graph(id='price-graph'),
 
-    html.H2("Rapport quotidien"),
+    # daily report
+    html.H2("📘 Rapport quotidien", style={
+        "marginTop": "40px",
+        "color": "#1565c0"
+    }),
     html.Pre(id='daily-report', style={
         "whiteSpace": "pre-wrap",
         "backgroundColor": "#f7f7f7",
         "padding": "1em",
-        "border": "1px solid #ccc"
+        "border": "1px solid #ccc",
+        "borderRadius": "8px"
     }),
 
-    dcc.Interval(id='interval', interval=5*60*1000, n_intervals=0)  # mise à jour toutes les 5 minutes
+    # automatic refresh
+    dcc.Interval(id='interval', interval=5*60*1000, n_intervals=0),
+
+    # footer
+    html.Footer(" scraping project - coworkers : Sami MEKKI - Leslie NJOUKOUE", style={
+        "textAlign": "center",
+        "marginTop": "50px",
+        "paddingTop": "20px",
+        "borderTop": "1px solid #ccc",
+        "color": "#888",
+        "fontSize": "14px"
+    })
 ])
 
 @app.callback(
@@ -58,20 +98,19 @@ def update_dashboard(n):
     if df.empty:
         return "Aucune donnée disponible", {}, "", ""
 
-    # Prix actuel
     current_price = df.iloc[-1]["price"]
     current_time = df.iloc[-1]["timestamp"]
 
-    # Graphique
-    fig = px.line(df, x="timestamp", y="price", title="Évolution du cours NVDA", markers=True)
+    # Graphs
+    fig = px.line(df, x="timestamp", y="price", title="Évolution du cours NVDA")
 
-    # Rapport
+    # Report
     rapport = lire_rapport()
 
     return (
-        f"Prix actuel : {current_price:.2f} EUR",
+        f"💶 current price : {current_price:.2f} EUR",
         fig,
-        f"Dernière mise à jour : {current_time}",
+        f"🕒 last update : {current_time}",
         rapport
     )
 
