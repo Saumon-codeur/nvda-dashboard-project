@@ -1,6 +1,6 @@
 # NVDA Dashboard Project
 
-Ce projet réalise un scraping du cours de l’action NVIDIA (NVDA) depuis le site Boursorama, toutes les 5 minutes, à l’aide d’un script Bash. Les données sont stockées dans un fichier CSV et visualisées en temps réel à travers un tableau de bord interactif développé avec Dash (Python).
+Ce projet réalise un scraping du cours de l’action NVIDIA (NVDA) depuis le site Boursorama, toutes les 5 minutes, à l’aide d’un script Bash. Les données sont stockées dans un fichier CSV et visualisées en temps réel à travers un tableau de bord interactif développé avec Dash (Python).Le projet repose sur les horaires du marché NASDAQ (15h30–22h). En dehors de ces horaires, le cours reste figé car aucun échange n’a lieu.
 
 ## Fonctionnalités
 
